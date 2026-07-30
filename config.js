@@ -1,0 +1,58 @@
+window.Config = {
+    // Thông tin cá nhân
+    profile: {
+        name: "Nguyễn Minh Hân",
+        bio: "Web Developer & Tech Enthusiast",
+        // URL ảnh đại diện (Có thể dùng link ngoài hoặc đường dẫn tương đối)
+        avatar: "https://i.pravatar.cc/300?img=68", 
+    },
+
+    // Cấu hình giao diện
+    theme: {
+        // Có thể mở rộng sau này, mặc định dùng CSS
+    },
+
+    // Danh sách các liên kết
+    // - title: Tiêu đề hiển thị
+    // - url: Đường dẫn khi click vào
+    // - icon: Tên icon lấy từ trang https://ionic.io/ionicons
+    links: [
+        {
+            title: "Website Cá Nhân",
+            url: "https://minhhan.net",
+            icon: "globe-outline"
+        },
+        {
+            title: "Facebook",
+            url: "https://facebook.com",
+            icon: "logo-facebook"
+        },
+        {
+            title: "Zalo",
+            url: "https://zalo.me",
+            icon: "chatbubble-ellipses-outline"
+        },
+        {
+            title: "Kênh YouTube",
+            url: "https://youtube.com",
+            icon: "logo-youtube"
+        },
+        {
+            title: "GitHub Cá Nhân",
+            url: "https://github.com",
+            icon: "logo-github"
+        }
+    ],
+
+    // Các liên kết mạng xã hội nhỏ dưới cùng (nếu có)
+    socials: [
+        {
+            url: "mailto:contact@minhhan.net",
+            icon: "mail-outline"
+        },
+        {
+            url: "tel:0123456789",
+            icon: "call-outline"
+        }
+    ]
+};
