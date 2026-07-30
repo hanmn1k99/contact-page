@@ -18,28 +18,28 @@ window.Config = {
     // - icon: Tên icon lấy từ trang https://ionic.io/ionicons
     links: [
         {
-            title: "Website Cá Nhân",
+            title: "Website",
             url: "https://minhhan.net",
             icon: "globe-outline"
         },
         {
             title: "Facebook",
-            url: "https://facebook.com",
+            url: "https://facebook.com/minhhanit",
             icon: "logo-facebook"
         },
         {
             title: "Zalo",
-            url: "https://zalo.me",
+            url: "https://zalo.me/0868911747",
             icon: "chatbubble-ellipses-outline"
         },
         {
             title: "Kênh YouTube",
-            url: "https://youtube.com",
+            url: "https://youtube.com/@minhhanit",
             icon: "logo-youtube"
         },
         {
             title: "GitHub Cá Nhân",
-            url: "https://github.com",
+            url: "https://github.com/hanmn1k99",
             icon: "logo-github"
         }
     ],
@@ -47,11 +47,11 @@ window.Config = {
     // Các liên kết mạng xã hội nhỏ dưới cùng (nếu có)
     socials: [
         {
-            url: "mailto:contact@minhhan.net",
+            url: "mailto:han@minhhan.net",
             icon: "mail-outline"
         },
         {
-            url: "tel:0123456789",
+            url: "tel:0868911747",
             icon: "call-outline"
         }
     ]

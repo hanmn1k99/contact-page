@@ -211,6 +211,15 @@ body {
     text-shadow: 0 0 10px var(--accent-glow);
 }
 
+/* Copyright Section */
+.copyright {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 14px;
+    color: var(--text-secondary);
+    letter-spacing: 0.5px;
+}
+
 /* Responsive */
 @media (max-width: 480px) {
     .glass-container {

@@ -72,6 +72,18 @@ document.addEventListener('DOMContentLoaded', () => {
         app.appendChild(socialsContainer);
     }
 
+    // 4. Thêm phần Copyright
+    const copyrightDiv = document.createElement('div');
+    copyrightDiv.className = 'copyright';
+    const currentYear = new Date().getFullYear();
+    copyrightDiv.innerHTML = `&copy; ${currentYear} ${config.profile.name}. All rights reserved.`;
+    
+    // Animation cho copyright
+    copyrightDiv.style.animation = `fadeInUp 0.5s ease forwards ${(config.links ? config.links.length + 1 : 1) * 0.1 + (config.socials ? config.socials.length * 0.1 : 0)}s`;
+    copyrightDiv.style.opacity = '0';
+    
+    app.appendChild(copyrightDiv);
+
     // Cập nhật title của trang web cho đúng với tên người dùng
     document.title = `Liên Hệ - ${config.profile.name}`;
 });
