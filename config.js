@@ -33,12 +33,12 @@ window.Config = {
             icon: "chatbubble-ellipses-outline"
         },
         {
-            title: "Kênh YouTube",
+            title: "YouTube",
             url: "https://youtube.com/@minhhanit",
             icon: "logo-youtube"
         },
         {
-            title: "GitHub Cá Nhân",
+            title: "GitHub",
             url: "https://github.com/hanmn1k99",
             icon: "logo-github"
         }
