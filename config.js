@@ -4,7 +4,7 @@ window.Config = {
         name: "Nguyễn Minh Hân",
         bio: "Web Developer & Tech Enthusiast",
         // URL ảnh đại diện (Có thể dùng link ngoài hoặc đường dẫn tương đối)
-        avatar: "https://i.pravatar.cc/300?img=68", 
+        avatar: "/avt.png", 
         // URL ảnh Favicon (icon trên tab trình duyệt)
         favicon: "https://minhhan.net/favicon.ico",
     },
