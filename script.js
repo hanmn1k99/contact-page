@@ -85,10 +85,12 @@ document.addEventListener('DOMContentLoaded', () => {
     app.appendChild(copyrightDiv);
 
     // 5. Cập nhật Favicon và Title
-    const favicon = document.createElement('link');
-    favicon.rel = 'icon';
-    favicon.href = config.profile.avatar;
-    document.head.appendChild(favicon);
+    if (config.profile.favicon) {
+        const favicon = document.createElement('link');
+        favicon.rel = 'icon';
+        favicon.href = config.profile.favicon;
+        document.head.appendChild(favicon);
+    }
     
     document.title = `Liên Hệ - ${config.profile.name}`;
 });
