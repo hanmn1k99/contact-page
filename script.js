@@ -16,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <img src="${config.profile.avatar}" 
              alt="Avatar" 
              class="profile-avatar" 
+             style="object-position: ${config.profile.avatarPosition || 'center'};"
              loading="lazy"
              onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(config.profile.name)}&background=random&color=fff&size=200';">
         <h1 class="profile-name">${config.profile.name}</h1>

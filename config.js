@@ -5,6 +5,8 @@ window.Config = {
         bio: "Web Developer & Tech Enthusiast",
         // URL ảnh đại diện (Có thể dùng link ngoài hoặc đường dẫn tương đối)
         avatar: "./avt.png", 
+        // Điều chỉnh vị trí crop ảnh (ví dụ: "center", "top", "bottom", "left", "right", hoặc "50% 20%")
+        avatarPosition: "center",
         // URL ảnh Favicon (icon trên tab trình duyệt)
         favicon: "https://minhhan.net/favicon.ico",
     },
