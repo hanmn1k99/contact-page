@@ -54,7 +54,59 @@ document.addEventListener('DOMContentLoaded', () => {
         app.appendChild(linksContainer);
     }
 
-    // 3. Tạo phần Socials (Icon nhỏ dưới cùng)
+    // 3. Tạo phần Donation (Nếu có)
+    if (config.donations && config.donations.length > 0) {
+        const donationTitle = document.createElement('h2');
+        donationTitle.className = 'section-title';
+        donationTitle.innerText = '☕ Ủng hộ / Donate';
+        donationTitle.style.animation = `fadeInUp 0.5s ease forwards ${(config.links ? config.links.length + 1 : 1) * 0.1}s`;
+        donationTitle.style.opacity = '0';
+        app.appendChild(donationTitle);
+
+        const donationContainer = document.createElement('div');
+        donationContainer.className = 'donation-container';
+
+        config.donations.forEach((donate, index) => {
+            const btn = document.createElement('div');
+            btn.className = 'donate-item';
+            
+            btn.style.animation = `fadeInUp 0.5s ease forwards ${(config.links ? config.links.length + 2 : 2) * 0.1 + (index * 0.1)}s`;
+            btn.style.opacity = '0';
+
+            btn.innerHTML = `
+                <div class="donate-icon">
+                    <img src="${donate.logo}" alt="${donate.bank}" onerror="this.src='https://ui-avatars.com/api/?name=${donate.bank}&background=random&color=fff'">
+                </div>
+                <div class="donate-info">
+                    <div class="donate-bank">${donate.bank}</div>
+                    <div class="donate-number">${donate.number}</div>
+                    <div class="donate-owner">${donate.owner}</div>
+                </div>
+                <div class="donate-copy">
+                    <ion-icon name="copy-outline"></ion-icon>
+                </div>
+            `;
+            
+            // Tính năng click để copy
+            btn.addEventListener('click', () => {
+                navigator.clipboard.writeText(donate.number).then(() => {
+                    const copyIcon = btn.querySelector('.donate-copy ion-icon');
+                    copyIcon.setAttribute('name', 'checkmark-outline');
+                    copyIcon.style.color = '#10b981'; // Green
+                    setTimeout(() => {
+                        copyIcon.setAttribute('name', 'copy-outline');
+                        copyIcon.style.color = '';
+                    }, 2000);
+                });
+            });
+
+            donationContainer.appendChild(btn);
+        });
+
+        app.appendChild(donationContainer);
+    }
+
+    // 4. Tạo phần Socials (Icon nhỏ dưới cùng)
     if (config.socials && config.socials.length > 0) {
         const socialsContainer = document.createElement('div');
         socialsContainer.className = 'socials-container';
@@ -89,7 +141,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     app.appendChild(copyrightDiv);
 
-    // 5. Cập nhật Favicon và Title
+    // 6. Cập nhật Favicon và Title
     if (config.profile.favicon) {
         const favicon = document.createElement('link');
         favicon.rel = 'icon';
@@ -98,13 +150,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     document.title = `Liên Hệ - ${config.profile.name}`;
-
-    // 6. Hiệu ứng chuột (Cursor Glow)
-    const cursorGlow = document.querySelector('.cursor-glow');
-    if (cursorGlow) {
-        document.addEventListener('mousemove', (e) => {
-            cursorGlow.style.left = e.clientX + 'px';
-            cursorGlow.style.top = e.clientY + 'px';
-        });
-    }
 });

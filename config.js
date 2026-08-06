@@ -48,6 +48,22 @@ window.Config = {
         }
     ],
 
+    // Danh sách tài khoản nhận Donate (Ủng hộ)
+    donations: [
+        {
+            bank: "MB Bank",
+            number: "0868911747",
+            owner: "NGUYEN MINH HAN",
+            logo: "https://img.mservice.io/momo_app_v2/new_version/img/appx_icon/24_mbbank.png" // Hoặc tự tải logo ngân hàng
+        },
+        {
+            bank: "MoMo",
+            number: "0868911747",
+            owner: "NGUYEN MINH HAN",
+            logo: "https://upload.wikimedia.org/wikipedia/vi/f/fe/MoMo_Logo.png"
+        }
+    ],
+
     // Các liên kết mạng xã hội nhỏ dưới cùng (nếu có)
     socials: [
         {
