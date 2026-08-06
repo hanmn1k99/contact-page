@@ -27,8 +27,7 @@ body {
     min-height: 100vh;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    padding: 60px 16px 40px; /* Đẩy nội dung xuống một chút so với mép trên */
+    align-items: center;
     position: relative;
     overflow-x: hidden;
 }
@@ -55,8 +54,8 @@ body {
 /* Main Container - Glassmorphism */
 .glass-container {
     width: 100%;
-    max-width: 440px;
-    padding: 36px 24px;
+    max-width: 520px;
+    padding: 40px 24px;
     background: var(--glass-bg);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
@@ -265,6 +264,7 @@ body {
 .donate-btn span {
     font-size: 14px;
     font-weight: 600;
+    white-space: nowrap;
 }
 
 /* Modal / Popup cho QR Code */
@@ -355,14 +355,10 @@ body {
     .glass-container {
         border-radius: 20px;
         padding: 32px 20px;
+        margin: 16px;
     }
     
     .profile-name {
         font-size: 22px;
-    }
-
-    .donation-row {
-        flex-direction: column;
-        gap: 12px;
     }
 }
