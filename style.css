@@ -54,8 +54,8 @@ body {
 /* Main Container - Glassmorphism */
 .glass-container {
     width: 100%;
-    max-width: 520px;
-    padding: 48px 56px;
+    max-width: 420px;
+    padding: 40px 32px;
     background: var(--glass-bg);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);

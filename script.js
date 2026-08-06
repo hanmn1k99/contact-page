@@ -46,6 +46,9 @@ document.addEventListener('DOMContentLoaded', () => {
                     <ion-icon name="${link.icon}"></ion-icon>
                 </div>
                 <span class="link-title">${link.title}</span>
+                <div class="link-arrow" style="margin-left: auto; opacity: 0.4; display: flex; align-items: center; font-size: 20px;">
+                    <ion-icon name="chevron-forward-outline"></ion-icon>
+                </div>
             `;
             
             linksContainer.appendChild(a);
