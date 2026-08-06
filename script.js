@@ -98,4 +98,13 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     
     document.title = `Liên Hệ - ${config.profile.name}`;
+
+    // 6. Hiệu ứng chuột (Cursor Glow)
+    const cursorGlow = document.querySelector('.cursor-glow');
+    if (cursorGlow) {
+        document.addEventListener('mousemove', (e) => {
+            cursorGlow.style.left = e.clientX + 'px';
+            cursorGlow.style.top = e.clientY + 'px';
+        });
+    }
 });

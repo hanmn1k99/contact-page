@@ -15,6 +15,9 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Glow effect following mouse -->
+    <div class="cursor-glow"></div>
+
     <!-- Background Animation Layer -->
     <div class="bg-animation"></div>
 
@@ -30,5 +33,18 @@
     <!-- App Data & Logic -->
     <script src="config.js"></script>
     <script src="script.js"></script>
+
+    <!-- Vanilla Tilt for 3D Glass Effect -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.8.1/vanilla-tilt.min.js"></script>
+    <script>
+        // Initialize 3D Tilt Effect
+        VanillaTilt.init(document.querySelector(".glass-container"), {
+            max: 5,
+            speed: 400,
+            glare: true,
+            "max-glare": 0.2,
+            gyroscope: true
+        });
+    </script>
 </body>
 </html>
