@@ -101,10 +101,6 @@ body {
     transform: translateZ(30px);
 }
 
-.profile-avatar:hover {
-    transform: translateZ(40px) scale(1.1) rotate(5deg);
-}
-
 .profile-name {
     font-size: 26px;
     font-weight: 700;

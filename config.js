@@ -61,7 +61,7 @@ window.Config = {
             bank: "MoMo",
             number: "0847675557",
             owner: "NGUYEN XUAN NGHIA",
-            logo: "https://upload.wikimedia.org/wikipedia/vi/f/fe/MoMo_Logo.png",
+            logo: "https://cdn.haitrieu.com/wp-content/uploads/2022/10/Logo-MoMo-Square.png",
             qr: "./qrmomo.png"
         }
     ],
