@@ -77,52 +77,74 @@ document.addEventListener('DOMContentLoaded', () => {
         app.appendChild(socialsContainer);
     }
 
-    // 4. Tạo phần Donation (Nằm dưới nút mail, phone)
+    // 4. Tạo phần Donation (Chung 1 hàng)
     if (config.donations && config.donations.length > 0) {
-        // Tạo một container cho phần donate
-        const donationContainer = document.createElement('div');
-        donationContainer.className = 'links-container';
-        donationContainer.style.marginTop = '24px'; // Cách ra một chút so với socials
+        const donationRow = document.createElement('div');
+        donationRow.className = 'donation-row';
 
         config.donations.forEach((donate, index) => {
             const btn = document.createElement('div');
-            btn.className = 'link-item';
-            btn.style.cursor = 'pointer';
+            btn.className = 'donate-btn';
             
             const baseDelay = (config.links ? config.links.length : 0) + (config.socials ? config.socials.length : 0) + 1;
             btn.style.animation = `fadeInUp 0.5s ease forwards ${(baseDelay * 0.1) + (index * 0.1)}s`;
             btn.style.opacity = '0';
 
             btn.innerHTML = `
-                <div class="link-icon">
-                    <img src="${donate.logo}" alt="${donate.bank}" style="width:24px; height:24px; object-fit:contain; border-radius:4px;" onerror="this.src='https://ui-avatars.com/api/?name=${donate.bank}&background=random&color=fff'">
-                </div>
-                <div style="flex-grow: 1; display: flex; flex-direction: column;">
-                    <span class="link-title" style="font-weight: 600;">${donate.bank}</span>
-                    <span style="font-size: 13px; color: var(--text-secondary);">${donate.number}</span>
-                </div>
-                <div class="donate-copy" style="display: flex; align-items: center; color: var(--text-secondary);">
-                    <ion-icon name="copy-outline"></ion-icon>
-                </div>
+                <img src="${donate.logo}" alt="${donate.bank}" onerror="this.src='https://ui-avatars.com/api/?name=${donate.bank}&background=random&color=fff'">
+                <span>${donate.bank}</span>
             `;
             
-            // Tính năng click để copy
+            // Xử lý sự kiện mở Popup QR
             btn.addEventListener('click', () => {
-                navigator.clipboard.writeText(donate.number).then(() => {
-                    const copyIcon = btn.querySelector('.donate-copy ion-icon');
-                    copyIcon.setAttribute('name', 'checkmark-outline');
-                    copyIcon.style.color = '#10b981'; // Green
-                    setTimeout(() => {
-                        copyIcon.setAttribute('name', 'copy-outline');
-                        copyIcon.style.color = '';
-                    }, 2000);
-                });
+                showQRModal(donate);
             });
 
-            donationContainer.appendChild(btn);
+            donationRow.appendChild(btn);
         });
 
-        app.appendChild(donationContainer);
+        app.appendChild(donationRow);
+    }
+
+    // --- Modal Logic ---
+    function showQRModal(donate) {
+        let modal = document.getElementById('qrModal');
+        if (!modal) {
+            // Khởi tạo Modal nếu chưa có
+            modal = document.createElement('div');
+            modal.id = 'qrModal';
+            modal.className = 'qr-modal';
+            modal.innerHTML = `
+                <div class="qr-modal-content">
+                    <div class="qr-close-btn" id="qrCloseBtn">×</div>
+                    <img id="qrImage" class="qr-image" src="" alt="QR Code" onerror="this.src='https://placehold.co/400x400/0f172a/FFF?text=No+QR+Code'">
+                    <div id="qrBankName" class="qr-bank-name"></div>
+                    <div id="qrBankNumber" class="qr-bank-number"></div>
+                </div>
+            `;
+            document.body.appendChild(modal);
+
+            // Xử lý sự kiện đóng
+            const closeBtn = document.getElementById('qrCloseBtn');
+            closeBtn.addEventListener('click', () => {
+                modal.classList.remove('show');
+            });
+
+            // Click ra ngoài modal để đóng
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('show');
+                }
+            });
+        }
+
+        // Cập nhật dữ liệu vào Modal
+        document.getElementById('qrImage').src = donate.qr || '';
+        document.getElementById('qrBankName').innerText = donate.bank;
+        document.getElementById('qrBankNumber').innerText = `${donate.number} - ${donate.owner}`;
+
+        // Hiển thị Modal
+        modal.classList.add('show');
     }
 
     // 4. Thêm phần Copyright

@@ -54,13 +54,15 @@ window.Config = {
             bank: "Vietcombank",
             number: "1011000641105",
             owner: "NGUYEN XUAN NGHIAA",
-            logo: "https://cdn.haitrieu.com/wp-content/uploads/2022/02/Icon-Vietcombank.png" 
+            logo: "https://cdn.haitrieu.com/wp-content/uploads/2022/02/Icon-Vietcombank.png",
+            qr: "./qrvcb.png"
         },
         {
             bank: "MoMo",
             number: "0847675557",
             owner: "NGUYEN XUAN NGHIA",
-            logo: "https://upload.wikimedia.org/wikipedia/vi/f/fe/MoMo_Logo.png"
+            logo: "https://upload.wikimedia.org/wikipedia/vi/f/fe/MoMo_Logo.png",
+            qr: "./qrmomo.png"
         }
     ],
 
