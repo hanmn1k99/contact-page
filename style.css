@@ -1,6 +1,6 @@
 :root {
     --bg-color-1: #0f172a;
-    --bg-color-2: #020617; /* Đổi màu nền tối hơn, nam tính hơn */
+    --bg-color-2: #1e1b4b;
     --text-primary: #f8fafc;
     --text-secondary: #94a3b8;
     
@@ -8,8 +8,8 @@
     --glass-border: rgba(255, 255, 255, 0.08);
     --glass-hover: rgba(255, 255, 255, 0.08);
     
-    --accent-color: #0ea5e9; /* Xanh ngọc Tech */
-    --accent-glow: rgba(14, 165, 233, 0.5); /* Sáng xanh ngọc */
+    --accent-color: #8b5cf6;
+    --accent-glow: rgba(139, 92, 246, 0.5);
     
     --font-family: 'Outfit', sans-serif;
 }
@@ -39,8 +39,8 @@ body {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle at 50% 50%, rgba(14, 165, 233, 0.15) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(56, 189, 248, 0.1) 0%, transparent 40%);
+    background: radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.2) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(56, 189, 248, 0.15) 0%, transparent 40%);
     animation: rotateBg 20s linear infinite;
     z-index: -1;
 }
@@ -90,14 +90,14 @@ body {
 }
 
 .profile-avatar {
-    width: 104px;
-    height: 104px;
+    width: 120px;
+    height: 120px;
     border-radius: 50%;
     object-fit: cover;
     margin-bottom: 16px;
     border: 3px solid transparent;
     background: linear-gradient(var(--bg-color-1), var(--bg-color-1)) padding-box,
-                linear-gradient(45deg, #0ea5e9, #38bdf8, #0284c7) border-box; /* Viền xanh ngọc */
+                linear-gradient(45deg, #8b5cf6, #38bdf8, #8b5cf6) border-box;
     background-size: 200% 200%;
     box-shadow: 0 0 20px var(--accent-glow);
     transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -112,8 +112,8 @@ body {
 }
 
 @keyframes avatarPulse {
-    0% { box-shadow: 0 0 15px rgba(14, 165, 233, 0.3); }
-    100% { box-shadow: 0 0 30px rgba(56, 189, 248, 0.5); }
+    0% { box-shadow: 0 0 15px rgba(139, 92, 246, 0.4); }
+    100% { box-shadow: 0 0 30px rgba(56, 189, 248, 0.6); }
 }
 
 .profile-avatar:hover {
@@ -124,9 +124,16 @@ body {
     font-size: 26px;
     font-weight: 700;
     margin-bottom: 8px;
-    color: #ffffff; /* Trắng tinh tế, không màu mè */
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3); /* Sáng viền chữ nhẹ */
+    background: linear-gradient(to right, #ffffff, #a5b4fc, #38bdf8);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textShine 4s linear infinite;
     transform: translateZ(20px);
+}
+
+@keyframes textShine {
+    to { background-position: 200% center; }
 }
 
 .profile-bio {
@@ -183,7 +190,7 @@ body {
     background: var(--glass-hover);
     transform: translateZ(25px) translateY(-4px) scale(1.02);
     box-shadow: 0 15px 30px -5px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255,255,255,0.2);
-    border-color: rgba(56, 189, 248, 0.5); /* Viền sáng xanh lơ khi hover */
+    border-color: rgba(139, 92, 246, 0.4);
 }
 
 .link-icon {
