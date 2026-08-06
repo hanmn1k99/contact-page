@@ -22,9 +22,7 @@
 
 body {
     font-family: var(--font-family);
-    background: linear-gradient(-45deg, #0f172a, #020617, #082f49, #172554);
-    background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite;
+    background: linear-gradient(135deg, #0f172a 0%, #0369a1 100%);
     color: var(--text-primary);
     min-height: 100vh;
     display: flex;
@@ -32,12 +30,6 @@ body {
     align-items: center;
     position: relative;
     overflow-x: hidden;
-}
-
-@keyframes gradientBG {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
 }
 
 /* Dynamic Animated Background */
