@@ -13,7 +13,11 @@ document.addEventListener('DOMContentLoaded', () => {
     profileSection.className = 'profile';
     
     profileSection.innerHTML = `
-        <img src="${config.profile.avatar}" alt="Avatar" class="profile-avatar" loading="lazy">
+        <img src="${config.profile.avatar}" 
+             alt="Avatar" 
+             class="profile-avatar" 
+             loading="lazy"
+             onerror="this.onerror=null; this.src='https://ui-avatars.com/api/?name=${encodeURIComponent(config.profile.name)}&background=random&color=fff&size=200';">
         <h1 class="profile-name">${config.profile.name}</h1>
         <p class="profile-bio">${config.profile.bio}</p>
     `;
