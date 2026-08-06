@@ -56,33 +56,28 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // 3. Tạo phần Donation (Nếu có)
     if (config.donations && config.donations.length > 0) {
-        const donationTitle = document.createElement('h2');
-        donationTitle.className = 'section-title';
-        donationTitle.innerText = '☕ Ủng hộ / Donate';
-        donationTitle.style.animation = `fadeInUp 0.5s ease forwards ${(config.links ? config.links.length + 1 : 1) * 0.1}s`;
-        donationTitle.style.opacity = '0';
-        app.appendChild(donationTitle);
-
+        // Tạo một container cho phần donate
         const donationContainer = document.createElement('div');
-        donationContainer.className = 'donation-container';
+        donationContainer.className = 'links-container';
+        donationContainer.style.marginTop = '24px'; // Cách ra một chút so với link
 
         config.donations.forEach((donate, index) => {
             const btn = document.createElement('div');
-            btn.className = 'donate-item';
+            btn.className = 'link-item';
+            btn.style.cursor = 'pointer';
             
-            btn.style.animation = `fadeInUp 0.5s ease forwards ${(config.links ? config.links.length + 2 : 2) * 0.1 + (index * 0.1)}s`;
+            btn.style.animation = `fadeInUp 0.5s ease forwards ${(config.links ? config.links.length + 1 : 1) * 0.1 + (index * 0.1)}s`;
             btn.style.opacity = '0';
 
             btn.innerHTML = `
-                <div class="donate-icon">
-                    <img src="${donate.logo}" alt="${donate.bank}" onerror="this.src='https://ui-avatars.com/api/?name=${donate.bank}&background=random&color=fff'">
+                <div class="link-icon">
+                    <img src="${donate.logo}" alt="${donate.bank}" style="width:24px; height:24px; object-fit:contain; border-radius:4px;" onerror="this.src='https://ui-avatars.com/api/?name=${donate.bank}&background=random&color=fff'">
                 </div>
-                <div class="donate-info">
-                    <div class="donate-bank">${donate.bank}</div>
-                    <div class="donate-number">${donate.number}</div>
-                    <div class="donate-owner">${donate.owner}</div>
+                <div style="flex-grow: 1; display: flex; flex-direction: column;">
+                    <span class="link-title" style="font-weight: 600;">${donate.bank}</span>
+                    <span style="font-size: 13px; color: var(--text-secondary);">${donate.number}</span>
                 </div>
-                <div class="donate-copy">
+                <div class="donate-copy" style="display: flex; align-items: center; color: var(--text-secondary);">
                     <ion-icon name="copy-outline"></ion-icon>
                 </div>
             `;
