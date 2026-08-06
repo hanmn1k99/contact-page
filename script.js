@@ -89,7 +89,8 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.className = 'link-item';
             btn.style.cursor = 'pointer';
             
-            btn.style.animation = `fadeInUp 0.5s ease forwards ${(config.links ? config.links.length + (config.socials ? config.socials.length : 0) + 1) * 0.1 + (index * 0.1)}s`;
+            const baseDelay = (config.links ? config.links.length : 0) + (config.socials ? config.socials.length : 0) + 1;
+            btn.style.animation = `fadeInUp 0.5s ease forwards ${(baseDelay * 0.1) + (index * 0.1)}s`;
             btn.style.opacity = '0';
 
             btn.innerHTML = `
