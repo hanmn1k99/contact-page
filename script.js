@@ -54,19 +54,42 @@ document.addEventListener('DOMContentLoaded', () => {
         app.appendChild(linksContainer);
     }
 
-    // 3. Tạo phần Donation (Nếu có)
+    // 3. Tạo phần Socials (Icon nhỏ dưới cùng)
+    if (config.socials && config.socials.length > 0) {
+        const socialsContainer = document.createElement('div');
+        socialsContainer.className = 'socials-container';
+
+        config.socials.forEach((social, index) => {
+            const a = document.createElement('a');
+            a.href = social.url;
+            a.className = 'social-item';
+            a.target = '_blank';
+            a.rel = 'noopener noreferrer';
+            
+            a.style.animation = `fadeInUp 0.5s ease forwards ${(config.links ? config.links.length + 1 : 1) * 0.1 + (index * 0.1)}s`;
+            a.style.opacity = '0';
+
+            a.innerHTML = `<ion-icon name="${social.icon}"></ion-icon>`;
+            
+            socialsContainer.appendChild(a);
+        });
+
+        app.appendChild(socialsContainer);
+    }
+
+    // 4. Tạo phần Donation (Nằm dưới nút mail, phone)
     if (config.donations && config.donations.length > 0) {
         // Tạo một container cho phần donate
         const donationContainer = document.createElement('div');
         donationContainer.className = 'links-container';
-        donationContainer.style.marginTop = '24px'; // Cách ra một chút so với link
+        donationContainer.style.marginTop = '24px'; // Cách ra một chút so với socials
 
         config.donations.forEach((donate, index) => {
             const btn = document.createElement('div');
             btn.className = 'link-item';
             btn.style.cursor = 'pointer';
             
-            btn.style.animation = `fadeInUp 0.5s ease forwards ${(config.links ? config.links.length + 1 : 1) * 0.1 + (index * 0.1)}s`;
+            btn.style.animation = `fadeInUp 0.5s ease forwards ${(config.links ? config.links.length + (config.socials ? config.socials.length : 0) + 1) * 0.1 + (index * 0.1)}s`;
             btn.style.opacity = '0';
 
             btn.innerHTML = `
@@ -99,29 +122,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 
         app.appendChild(donationContainer);
-    }
-
-    // 4. Tạo phần Socials (Icon nhỏ dưới cùng)
-    if (config.socials && config.socials.length > 0) {
-        const socialsContainer = document.createElement('div');
-        socialsContainer.className = 'socials-container';
-
-        config.socials.forEach((social, index) => {
-            const a = document.createElement('a');
-            a.href = social.url;
-            a.className = 'social-item';
-            a.target = '_blank';
-            a.rel = 'noopener noreferrer';
-            
-            a.style.animation = `fadeInUp 0.5s ease forwards ${(config.links ? config.links.length + 1 : 1) * 0.1 + (index * 0.1)}s`;
-            a.style.opacity = '0';
-
-            a.innerHTML = `<ion-icon name="${social.icon}"></ion-icon>`;
-            
-            socialsContainer.appendChild(a);
-        });
-
-        app.appendChild(socialsContainer);
     }
 
     // 4. Thêm phần Copyright
